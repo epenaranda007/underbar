@@ -370,6 +370,30 @@
   // Example:
   // _.zip(['a','b','c','d'], [1,2,3]) returns [['a',1], ['b',2], ['c',3], ['d',undefined]]
   _.zip = function() {
+    var result = [];
+    for (var i = 0; i < arguments.length; i++){
+      for(var j = 0; j < arguments.length; j++){
+        if(!result[j]){
+          result[j] = [];
+          result[j].push(arguments[i][j]);
+        } else {
+          result[j].push(arguments[i][j]);
+        }
+      }
+    } 
+    return result;
+
+    /*return _.reduce(arguments, function(last, curr, index){
+        return _.reduce(arguments[index], function(last, curr, index){
+          if(!result[index]){
+            result[index] = [];
+            result[index].push(curr);
+            return result;
+          } else {
+            result[index].push(curr);
+          }
+        }, result);
+    }, result);*/
   };
 
   // Takes a multidimensional array and converts it to a one-dimensional array.
