@@ -424,7 +424,7 @@
     for(var i = 0; i < firstArray.length; i++){
       passed = true;
       for(var j = 0; j < otherArrays.length && passed; j++){
-        if(!(_.contains(otherArrays, firstArray[i]))){
+        if(!(_.contains(otherArrays[j], firstArray[i]))){
           passed = false;
         }
       }
